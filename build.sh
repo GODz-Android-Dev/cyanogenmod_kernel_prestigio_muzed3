@@ -19,8 +19,8 @@ then
     echo "BUID ERRORS!"
 else
  #if OK
-echo 'Moving CM Zera S'
-mv arch/arm/boot/zImage zImage # /var/www/compiled/CM-zImage-zeras
+echo 'Moving D3'
+mv arch/arm/boot/zImage /var/www/html/d3-boot.img-kernel
 fi
 
 
