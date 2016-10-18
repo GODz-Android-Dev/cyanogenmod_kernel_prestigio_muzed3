@@ -18,20 +18,14 @@
 #define LCD_DEBUG(fmt)  printk(fmt)
 #endif
 
-extern LCM_DRIVER otm9605a_dsi_vdo_cs_lcm_drv;
-extern LCM_DRIVER otm9605a_dsi_vdo_dijing_lcm_drv;
+extern LCM_DRIVER HX8394D_TXD_HANNSTAR_IPS_HD_lcm_drv;
 
 
 LCM_DRIVER* lcm_driver_list[] = 
 {
   
-#if defined(OTM9605A_DSI_VDO_CS)
-	&otm9605a_dsi_vdo_cs_lcm_drv,
-#endif
+	&HX8394D_TXD_HANNSTAR_IPS_HD_lcm_drv,
 
-#if defined(OTM9605A_DSI_VDO_DIJING)
-	&otm9605a_dsi_vdo_dijing_lcm_drv,
-#endif
 
 };
 
