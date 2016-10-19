@@ -447,19 +447,23 @@ static void lcm_get_params(LCM_PARAMS *params)
 		// Video mode setting
 		params->dsi.PS=LCM_PACKED_PS_24BIT_RGB888;
 
-		params->dsi.vertical_sync_active				= 4;// 3    2
-		params->dsi.vertical_backporch					= 12;// 20   1
-		params->dsi.vertical_frontporch					= 15; // 1  12
+		params->dsi.vertical_sync_active				= 2;// 3    2
+		params->dsi.vertical_backporch					= 19;// 20   1
+		params->dsi.vertical_frontporch					= 9; // 1  12
 		params->dsi.vertical_active_line				= FRAME_HEIGHT;
 
-		params->dsi.horizontal_sync_active				= 30;// 50  2
-		params->dsi.horizontal_backporch				= 75;
-		params->dsi.horizontal_frontporch				= 75;
+		params->dsi.horizontal_sync_active				= 36;// 50  2
+		params->dsi.horizontal_backporch				= 90;
+		params->dsi.horizontal_frontporch				= 90;
 		params->dsi.horizontal_active_pixel				= FRAME_WIDTH;
 
 
 		// Bit rate calculation
 		params->dsi.PLL_CLOCK = 230;
+	
+	
+		//form IDA
+		params->dsi.ssc_disable = 1;
 
 }
 
