@@ -226,156 +226,130 @@ static struct LCM_setting_table lcm_initialization_setting[] = {
 
 static void lcm_register(void)
 {
-unsigned int data_array[16];
+	unsigned int data_array[16];
 
-	data_array[0]=0x00043902;
-	data_array[1]=0x9483FFB9;
-	dsi_set_cmdq(&data_array, 2, 1);
-
-	data_array[0]=0x00033902;
-	data_array[1]=0x008373BA; // Set MIPI
-	dsi_set_cmdq(&data_array, 2, 1);
-
-	data_array[0]=0x00103902;
-	data_array[1]=0x12126AB1;// Set Power
-	data_array[2]=0xF111E424;//34
-	data_array[3]=0x239DE480;
-	data_array[4]=0x58D2C080;
-	dsi_set_cmdq(&data_array, 5, 1);
-
-
-	data_array[0]=0x000C3902;
-	data_array[1]=0x106400b2;
-	data_array[2]=0x081C1207;
-	data_array[3]=0x004D1C08;
-	dsi_set_cmdq(&data_array, 4, 1);
-
-	data_array[0]=0x000D3902;
-	data_array[1]=0x3FF00B4; // Set CYC
-	data_array[2]=0x35A035A;
-	data_array[3]=0x16A015A;
-	data_array[4]=0x0000006A;
-	dsi_set_cmdq(&data_array, 5, 1);
-
-	data_array[0]=0x00023902;
-	data_array[1]=0x55D2;
-	dsi_set_cmdq(&data_array, 2, 1);
-
-
-	data_array[0]=0x00043902;
-	data_array[1]=0x10E41BF;
-	dsi_set_cmdq(&data_array, 2, 1);
-
-
-	data_array[0]=0x00263902;
-	data_array[1]=0x000600D3; //SET GIP
-	data_array[2]=0x0081A40;
-	data_array[3]=0x71032;
-	data_array[4]=0x0F155407;
-	data_array[5]=0x12020405;
-	data_array[6]=0x33070510;
-	data_array[7]=0x370B0B33;
-	data_array[8]=0x8070710;
-	data_array[9]=0x0A000000;
-	data_array[10]=0x00000100;
-	dsi_set_cmdq(&data_array, 11, 1);
-
-	data_array[0]=0x002D3902;
-	data_array[1]=0x1B1A1AD5; //SET GIP
-	data_array[2]=0x0201001B;
-	data_array[3]=0x06050403;
-	data_array[4]=0x1B1A1A18;
-	data_array[5]=0x1825240B;
-	data_array[6]=0x18272618;
-	data_array[7]=0x18181818;
-	data_array[8]=0x18181818;
-	data_array[9]=0x18181818;
-	data_array[10]=0x20181818;
-	data_array[11]=0x18181821;
-	data_array[12]=0x00000018;
-	dsi_set_cmdq(&data_array, 13, 1);
-
-	data_array[0]=0x002D3902;
-	data_array[1]=0x1B1A1AD6; //SET GIP
-	data_array[2]=0x090A0B1B;
-	data_array[3]=0x05060708;
-	data_array[4]=0x01020304;
-	data_array[5]=0x58202100;
-	data_array[6]=0x18262758;
-	data_array[7]=0x18181818;
-	data_array[8]=0x18181818;
-	data_array[9]=0x18181818;
-	data_array[10]=0x25181818;
-	data_array[11]=0x18181824;
-	data_array[12]=0x00000018;
-	dsi_set_cmdq(&data_array, 13, 1);
-
-	data_array[0]=0x002B3902;
-	data_array[1]=0x1B1910E0;
-	data_array[2]=0x21352f1f;
-	data_array[3]=0x0C0A073b;
-	data_array[4]=0x13110e17;
-	data_array[5]=0x15091312;
-	data_array[6]=0x19101e18;
-	data_array[7]=0x352f1f1B;
-	data_array[8]=0x0A073b21;
-	data_array[9]=0x110e170c;
-	data_array[10]=0x09131213;
-	data_array[11]=0x001e1815;
-	dsi_set_cmdq(&data_array, 12, 1);
-
-
-	/*data_array[0]=0x002B3902;
-	data_array[1]=0x100b00E0;
-	data_array[2]=0x1d3f322c;
-	data_array[3]=0x0C0A0639;
-	data_array[4]=0x13110d17;
-	data_array[5]=0x13081311;
-	data_array[6]=0x0b001614;
-	data_array[7]=0x3f322c10;
-	data_array[8]=0x0A06391d;
-	data_array[9]=0x110d170c;
-	data_array[10]=0x08131113;
-	data_array[11]=0x00161413;
-	dsi_set_cmdq(&data_array, 12, 1);*/
-
-	data_array[0]=0x00023902;
-	data_array[1]=0x000009CC;
-	dsi_set_cmdq(&data_array, 2, 1);
-
-	data_array[0]=0x00033902;
-	data_array[1]=0x001430C0;
-	dsi_set_cmdq(&data_array, 2, 1);
-
-
-
-
-	data_array[0]=0x00023902;
-	data_array[1]=0x007575B6;//SET VCOM
-	dsi_set_cmdq(&data_array, 2, 1);
-
-	data_array[0]=0x00053902;
-	data_array[1]=0x40C000C7;
-	data_array[2]=0x000000C0;
-	dsi_set_cmdq(&data_array, 3, 1);
-
-	data_array[0]=0x00023902;
-	data_array[1]=0x000003e4;
-	dsi_set_cmdq(&data_array, 2, 1);
-
-	data_array[0]=0x00023902;
-	data_array[1]=0x000001e6;
-	dsi_set_cmdq(&data_array, 2, 1);
-
-
-
-	data_array[0] = 0x00110500; //0x11,exit sleep mode,1byte
-	dsi_set_cmdq(&data_array, 1, 1);
-	MDELAY(200);
-
-	data_array[0] = 0x00290500; //0x11,exit sleep mode,1byte
-	dsi_set_cmdq(&data_array, 1, 1);
-	MDELAY(10);
+  int v0 = 0;
+data_array[0] = 0x43902;
+  data_array[1] = 0x9483FFB9;
+  dsi_set_cmdq(&data_array, 2, 1);
+  MDELAY(5);
+  data_array[0] = 0x33902;
+  data_array[1] = 0x8373BA;
+  dsi_set_cmdq(&data_array, 2, 1);
+  MDELAY(1);
+  data_array[0] = 0x103902;
+  data_array[1] = 0x12126AB1;
+  data_array[2] = 0xF111E424;
+  data_array[3] = 0x239DE480;
+  data_array[4] = 0x58D2C080;
+  dsi_set_cmdq(&data_array, 5, 1);
+  MDELAY(1);
+  data_array[0] = 0xC3902;
+  data_array[1] = 0x106400B2;
+  data_array[2] = 0x81C1207;
+  data_array[3] = 0x4D1C08;
+  dsi_set_cmdq(&data_array, 4, 1);
+  MDELAY(1);
+  data_array[0] = 0xD3902;
+  data_array[1] = 0x3FF00B4;
+  data_array[2] = 0x35A035A;
+  data_array[3] = 0x16A015A;
+  data_array[4] = 0x6A;
+  dsi_set_cmdq(&data_array, 5, 1);
+  MDELAY(1);
+  data_array[0] = 0x23902;
+  data_array[1] = 0x55D2;
+  dsi_set_cmdq(&data_array, 2, 1);
+  MDELAY(1);
+  data_array[0] = 0x43902;
+  data_array[1] = 0x10E41BF;
+  dsi_set_cmdq(&data_array, 2, 1);
+  MDELAY(1);
+  data_array[0] = 0x263902;
+  data_array[1] = 0x600D3;
+  data_array[2] = 0x81A40;
+  data_array[3] = 0x71032;
+  data_array[4] = 0xF155407;
+  data_array[5] = 0x12020405;
+  data_array[6] = 0x33070510;
+  data_array[7] = 0x370B0B33;
+  data_array[8] = 0x8070710;
+  data_array[9] = 0xA000000;
+  data_array[10] = 0x100;
+  dsi_set_cmdq(&data_array, 11, 1);
+  MDELAY(1);
+  data_array[2] = 0x1B1A1A18;
+  data_array[4] = 0x2010007;
+  
+  data_array[6] = 0x18181818;
+  data_array[0] = 0x2D3902;
+  data_array[12] = 0x18;
+  data_array[1] = 0x181919D5;
+  data_array[3] = 0x605041B;
+  data_array[5] = 0x18212003;
+  data_array[7] = 0x18181818;
+  data_array[8] = 0x22181818;
+  data_array[10] = 0x18181818;
+  data_array[9] = 0x18181823;
+  data_array[11] = 0x18181818;
+  dsi_set_cmdq(&data_array, 13, 1);
+  MDELAY(1);
+  data_array[0] = 0x2D3902;
+  data_array[12] = 0x18;
+  data_array[1] = 0x191818D6;
+  data_array[2] = 0x1B1A1A19;
+  data_array[3] = 0x102031B;
+  data_array[4] = 0x5060700;
+  data_array[5] = 0x18222304;
+  data_array[6] = 0x18181818;
+  data_array[7] = 0x18181818;
+  data_array[8] = 0x21181818;
+  data_array[9] = 0x18181820;
+  data_array[10] = 0x18181818;
+  data_array[11] = 0x18181818;
+  dsi_set_cmdq(&data_array, 13, 1);
+  MDELAY(1);
+  data_array[0] = 0x2C3902;
+  data_array[1] = 0x171204E0;
+  data_array[2] = 0x213E3330;
+  data_array[3] = 0xC0A073C;
+  data_array[4] = 0x13110D17;
+  data_array[5] = 0x12081311;
+  data_array[6] = 0x12041A16;
+  data_array[7] = 0x3E333017;
+  data_array[8] = 0xA073C21;
+  data_array[9] = 0x110D170C;
+  data_array[10] = 0x8131113;
+  data_array[11] = 0x1A1612;
+  dsi_set_cmdq(&data_array, 12, 1);
+  MDELAY(1);
+  data_array[0] = 0x33902;
+  data_array[1] = 0x6565B6;
+  dsi_set_cmdq(&data_array, 2, 1);
+  MDELAY(1);
+  data_array[0] = 0x23902;
+  data_array[1] = 0x9CC;
+  dsi_set_cmdq(&data_array, 2, 1);
+  MDELAY(1);
+  data_array[0] = 0x53902;
+  data_array[1] = 0x40C000C7;
+  data_array[2] = 0xC0;
+  dsi_set_cmdq(&data_array, 3, 1);
+  MDELAY(1);
+  data_array[0] = 0x23902;
+  data_array[1] = 0x87DF;
+  dsi_set_cmdq(&data_array, 2, 1);
+  MDELAY(1);
+  data_array[0] = 0x23902;
+  data_array[1] = 0x35;
+  dsi_set_cmdq(&data_array, 2, 1);
+  MDELAY(1);
+  data_array[0] = 0x110500;
+  dsi_set_cmdq(&data_array, 1, 1);
+  MDELAY(120);
+  data_array[0] = 0x290500;
+  dsi_set_cmdq(&data_array, 1, 1);
+  MDELAY(20);
 
 }
 static void push_table(struct LCM_setting_table *table, unsigned int
@@ -501,14 +475,14 @@ static void lcm_get_params(LCM_PARAMS *params)
 		// Video mode setting
 		params->dsi.PS=LCM_PACKED_PS_24BIT_RGB888;
 
-		params->dsi.vertical_sync_active				= 4;// 3    2
-		params->dsi.vertical_backporch					= 12;// 20   1
-		params->dsi.vertical_frontporch					= 15; // 1  12
+		params->dsi.vertical_sync_active				= 2;// 3    2
+		params->dsi.vertical_backporch					= 19;// 20   1
+		params->dsi.vertical_frontporch					= 9; // 1  12
 		params->dsi.vertical_active_line				= FRAME_HEIGHT;
 
-		params->dsi.horizontal_sync_active				= 30;// 50  2
-		params->dsi.horizontal_backporch				= 75;
-		params->dsi.horizontal_frontporch				= 75;
+		params->dsi.horizontal_sync_active				= 36;// 50  2
+		params->dsi.horizontal_backporch				= 90;
+		params->dsi.horizontal_frontporch				= 90;
 		params->dsi.horizontal_active_pixel				= FRAME_WIDTH;
 
 
@@ -516,6 +490,10 @@ static void lcm_get_params(LCM_PARAMS *params)
 
 		// Bit rate calculation
 		params->dsi.PLL_CLOCK = 230;
+	
+	
+		//form IDA
+		params->dsi.ssc_disable = 1;
 
 }
 
@@ -579,12 +557,11 @@ LCM_DRIVER HX8394D_TXD_HANNSTAR_IPS_HD_lcm_drv =
 	.resume         = lcm_resume,
      //.compare_id     = lcm_compare_id,
  #if (LCM_DSI_CMD_MODE)
-     .update         = lcm_update,
+    // .update         = lcm_update,
  #endif
-     .init_power        = lcm_init_power,
-     .resume_power = lcm_resume_power,
-     .suspend_power = lcm_suspend_power,
-     
+//     .init_power        = lcm_init_power,
+  //   .resume_power = lcm_resume_power,
+    // .suspend_power = lcm_suspend_power,
 	.esd_check	= lcm_esd_check,
 	.esd_recover	= lcm_esd_recover,
 
