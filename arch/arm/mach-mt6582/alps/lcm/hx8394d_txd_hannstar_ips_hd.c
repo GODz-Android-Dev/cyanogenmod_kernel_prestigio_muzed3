@@ -515,10 +515,10 @@ LCM_DRIVER HX8394D_TXD_HANNSTAR_IPS_HD_lcm_drv =
 	.resume         = lcm_resume,
      //.compare_id     = lcm_compare_id,
  #if (LCM_DSI_CMD_MODE)
-     .update         = lcm_update,
+    // .update         = lcm_update,
  #endif
-     .init_power        = lcm_init_power,
-     .resume_power = lcm_resume_power,
-     .suspend_power = lcm_suspend_power,
+//     .init_power        = lcm_init_power,
+  //   .resume_power = lcm_resume_power,
+    // .suspend_power = lcm_suspend_power,
 
      };
