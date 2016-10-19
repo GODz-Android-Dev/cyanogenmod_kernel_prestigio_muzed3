@@ -397,6 +397,60 @@ static void lcm_set_util_funcs(const LCM_UTIL_FUNCS *util)
 
 
 
+static unsigned int lcm_esd_check(void)
+{
+	int temp0=0,temp1=0,temp2=0,temp3=0;
+
+	char  buffer[3];
+	int   array[4];
+
+	 array[0] = 0x43902;
+  	array[1] = 0x9483FFB9;
+  	dsi_set_cmdq(array, 2, 1);
+  
+  	array[0] = 0x33902;
+  	array[1] = 0x8373BA;
+  	dsi_set_cmdq(array, 2, 1);
+  
+  	array[0] = 0x130500;
+  	dsi_set_cmdq(array, 1, 1);
+  
+  	array[0] = 0x290500;
+  	dsi_set_cmdq(array, 1, 1);
+  
+  	array[0] = 0x43700;
+  	dsi_set_cmdq(array, 1, 1);  
+  	read_reg_v2(9, buffer, 4);
+  
+     	if ( buffer[0] == 0x80 && buffer[1] == 0x73 && buffer[2] == 6 && !buffer[3] ) {
+    		return FALSE;
+   	}
+	
+  	array[0] = 0x13700;
+  	dsi_set_cmdq(array, 1, 1);  
+  	read_reg_v2(217, buffer, 1);
+	
+ 	temp0 = buffer[0];
+	
+  	array[0] = 0x13700;
+  	dsi_set_cmdq(array, 1, 1);
+  	read_reg_v2(10, buffer, 1);
+  	temp1 = buffer[0];
+	  
+  	array[0] = 0x23700;
+  	dsi_set_cmdq(array, 1, 1);
+  	read_reg_v2(0x45, buffer, 2);
+    	temp2 = buffer[0];  
+  
+  	if ( temp1 == 0x1C && temp0 == 0x80 && temp2 == 5 )
+      		return FALSE;
+	}
+	
+	return TRUE;
+}
+
+
+
 
 static void lcm_get_params(LCM_PARAMS *params)
 {
@@ -431,6 +485,8 @@ static void lcm_get_params(LCM_PARAMS *params)
 		params->dsi.horizontal_frontporch				= 90;
 		params->dsi.horizontal_active_pixel				= FRAME_WIDTH;
 
+
+		    params->dsi.esd_check_enable            = 1;
 
 		// Bit rate calculation
 		params->dsi.PLL_CLOCK = 230;
@@ -480,6 +536,14 @@ static unsigned int lcm_compare_id(void)
 	return 1;
 }
 
+static unsigned int lcm_esd_recover(void)
+{
+	lcm_init();	
+	return TRUE;
+}
+
+
+
 // ---------------------------------------------------------------------------
 //  Get LCM Driver Hooks
 // ---------------------------------------------------------------------------
@@ -498,5 +562,7 @@ LCM_DRIVER HX8394D_TXD_HANNSTAR_IPS_HD_lcm_drv =
 //     .init_power        = lcm_init_power,
   //   .resume_power = lcm_resume_power,
     // .suspend_power = lcm_suspend_power,
+	.esd_check	= lcm_esd_check,
+	.esd_recover	= lcm_esd_recover,
 
      };
