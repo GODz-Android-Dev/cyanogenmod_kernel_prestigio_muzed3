@@ -19,13 +19,8 @@ then
     echo "BUID ERRORS!"
 else
  #if OK
-<<<<<<< HEAD
 echo 'Moving D3'
 mv arch/arm/boot/zImage /var/www/html/d3-boot.img-kernel
-=======
-echo 'Moving CM Zera S'
-mv arch/arm/boot/zImage /var/www/compiled/CM-zImage-zeras
->>>>>>> parent of 1cef327... fixes
 fi
 
 
