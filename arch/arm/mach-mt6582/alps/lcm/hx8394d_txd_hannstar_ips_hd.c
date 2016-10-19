@@ -442,7 +442,7 @@ static unsigned int lcm_esd_check(void)
   	read_reg_v2(0x45, buffer, 2);
     	temp2 = buffer[0];  
   
-  	if ( temp1 == 0x1C && temp0 == 0x80 && temp2 == 5 )
+  	if ( temp1 == 0x1C && temp0 == 0x80 && temp2 == 5 ) { //f#ck
       		return FALSE;
 	}
 	
