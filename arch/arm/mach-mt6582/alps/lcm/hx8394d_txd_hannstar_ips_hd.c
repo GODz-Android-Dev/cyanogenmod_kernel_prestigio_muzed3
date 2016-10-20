@@ -458,42 +458,44 @@ static void lcm_get_params(LCM_PARAMS *params)
 
 		params->type   = LCM_TYPE_DSI;
 
-		params->width  = FRAME_WIDTH;
-		params->height = FRAME_HEIGHT;
+    params->width  = FRAME_WIDTH;
+    params->height = FRAME_HEIGHT;
+
+    // enable tearing-free
+    params->dbi.te_mode                 = LCM_DBI_TE_MODE_DISABLED;
+    params->dbi.te_edge_polarity        = LCM_POLARITY_RISING;
+
+    params->dsi.mode   = SYNC_PULSE_VDO_MODE;
+
+    // DSI
+    /* Command mode setting */
+    params->dsi.LANE_NUM                = LCM_THREE_LANE;
+    //The following defined the fomat for data coming from LCD engine.
+    params->dsi.data_format.color_order = LCM_COLOR_ORDER_RGB;
+    params->dsi.data_format.trans_seq   = LCM_DSI_TRANS_SEQ_MSB_FIRST;
+    params->dsi.data_format.padding     = LCM_DSI_PADDING_ON_LSB;
+    params->dsi.data_format.format      = LCM_DSI_FORMAT_RGB888;
+
+    params->dsi.intermediat_buffer_num = 0;//because DSI/DPI HW design change, this parameters should be 0 when video mode in MT658X; or memory leakage
+
+    params->dsi.PS=LCM_PACKED_PS_24BIT_RGB888;
+
+    params->dsi.word_count=720*3;
+    params->dsi.vertical_sync_active                = 2;
+    params->dsi.vertical_backporch                  = 16;
+    params->dsi.vertical_frontporch                 = 9;
+    params->dsi.vertical_active_line                = FRAME_HEIGHT;
+    params->dsi.horizontal_sync_active              = 18;
+    params->dsi.horizontal_backporch                = 50;
+    params->dsi.horizontal_frontporch               = 50;
+    params->dsi.horizontal_active_pixel             = FRAME_WIDTH;
 
 
-		params->dsi.mode   =SYNC_PULSE_VDO_MODE;// BURST_VDO_MODE; //SYNC_PULSE_VDO_MODE;//BURST_VDO_MODE;
-
-
-		// DSI
-		/* Command mode setting */
-		//1 Three lane or Four lane
-		params->dsi.LANE_NUM				= LCM_FOUR_LANE;
-		//The following defined the fomat for data coming from LCD engine.
-		params->dsi.data_format.format      = LCM_DSI_FORMAT_RGB888;
-
-		// Video mode setting
-		params->dsi.PS=LCM_PACKED_PS_24BIT_RGB888;
-
-		params->dsi.vertical_sync_active				= 2;// 3    2
-		params->dsi.vertical_backporch					= 19;// 20   1
-		params->dsi.vertical_frontporch					= 9; // 1  12
-		params->dsi.vertical_active_line				= FRAME_HEIGHT;
-
-		params->dsi.horizontal_sync_active				= 36;// 50  2
-		params->dsi.horizontal_backporch				= 90;
-		params->dsi.horizontal_frontporch				= 90;
-		params->dsi.horizontal_active_pixel				= FRAME_WIDTH;
-
-
-		    params->dsi.esd_check_enable            = 1;
-
-		// Bit rate calculation
-		params->dsi.PLL_CLOCK = 230;
-	
-	
-		//form IDA
-		params->dsi.ssc_disable = 1;
+    // Video mode setting
+    //params->dsi.PS=LCM_PACKED_PS_24BIT_RGB888;
+    //params->dsi.pll_select=1;
+    //params->dsi.PLL_CLOCK = LCM_DSI_6589_PLL_CLOCK_253_5;//LCM_DSI_6589_PLL_CLOCK_240_5;//LCM_DSI_6589_PLL_CLOCK_227_5;//this value must be in MTK suggested table 227_5
+	params->dsi.PLL_CLOCK = 230;
 
 }
 
