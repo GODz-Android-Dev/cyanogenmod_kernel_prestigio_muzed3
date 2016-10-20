@@ -454,9 +454,10 @@ static unsigned int lcm_esd_check(void)
 
 static void lcm_get_params(LCM_PARAMS *params)
 {
-		memset(params, 0, sizeof(LCM_PARAMS));
 
-		params->type   = LCM_TYPE_DSI;
+		    memset(params, 0, sizeof(LCM_PARAMS));
+
+    params->type   = LCM_TYPE_DSI;
 
     params->width  = FRAME_WIDTH;
     params->height = FRAME_HEIGHT;
@@ -465,11 +466,12 @@ static void lcm_get_params(LCM_PARAMS *params)
     params->dbi.te_mode                 = LCM_DBI_TE_MODE_DISABLED;
     params->dbi.te_edge_polarity        = LCM_POLARITY_RISING;
 
-    params->dsi.mode   = SYNC_PULSE_VDO_MODE;
+    //params->dsi.mode   = BURST_VDO_MODE;
+    params->dsi.mode   = SYNC_PULSE_VDO_MODE;//SYNC_EVENT_VDO_MODE; //BURST_VDO_MODE;
 
     // DSI
     /* Command mode setting */
-    params->dsi.LANE_NUM                = LCM_THREE_LANE;
+    params->dsi.LANE_NUM                = LCM_FOUR_LANE;
     //The following defined the fomat for data coming from LCD engine.
     params->dsi.data_format.color_order = LCM_COLOR_ORDER_RGB;
     params->dsi.data_format.trans_seq   = LCM_DSI_TRANS_SEQ_MSB_FIRST;
@@ -481,20 +483,15 @@ static void lcm_get_params(LCM_PARAMS *params)
     params->dsi.PS=LCM_PACKED_PS_24BIT_RGB888;
 
     params->dsi.word_count=720*3;
-    params->dsi.vertical_sync_active                = 2;
-    params->dsi.vertical_backporch                  = 16;
-    params->dsi.vertical_frontporch                 = 9;
+    params->dsi.vertical_sync_active                = 4;//2//
+    params->dsi.vertical_backporch                  = 12;//8
+    params->dsi.vertical_frontporch                 = 15;//6
     params->dsi.vertical_active_line                = FRAME_HEIGHT;
-    params->dsi.horizontal_sync_active              = 18;
-    params->dsi.horizontal_backporch                = 50;
-    params->dsi.horizontal_frontporch               = 50;
-    params->dsi.horizontal_active_pixel             = FRAME_WIDTH;
+    params->dsi.horizontal_sync_active              = 46;//86 20
+    params->dsi.horizontal_backporch                = 50;//55 50
+    params->dsi.horizontal_frontporch               = 50;//55   50
+    params->dsi.horizontal_active_pixel         = FRAME_WIDTH;
 
-
-    // Video mode setting
-    //params->dsi.PS=LCM_PACKED_PS_24BIT_RGB888;
-    //params->dsi.pll_select=1;
-    //params->dsi.PLL_CLOCK = LCM_DSI_6589_PLL_CLOCK_253_5;//LCM_DSI_6589_PLL_CLOCK_240_5;//LCM_DSI_6589_PLL_CLOCK_227_5;//this value must be in MTK suggested table 227_5
 	params->dsi.PLL_CLOCK = 230;
 
 }
