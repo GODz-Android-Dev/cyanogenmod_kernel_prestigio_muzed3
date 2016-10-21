@@ -476,7 +476,7 @@ static void lcm_get_params(LCM_PARAMS *params)
 		params->dsi.PS=LCM_PACKED_PS_24BIT_RGB888;
 
 		params->dsi.vertical_sync_active				= 2;// 3    2
-		params->dsi.vertical_backporch					= 19;// 20   1
+		params->dsi.vertical_backporch					= 16;// 20   1
 		params->dsi.vertical_frontporch					= 9; // 1  12
 		params->dsi.vertical_active_line				= FRAME_HEIGHT;
 
@@ -493,7 +493,7 @@ static void lcm_get_params(LCM_PARAMS *params)
 	
 	
 		//form IDA
-		params->dsi.ssc_disable = 1;
+		//params->dsi.ssc_disable = 1;
 
 }
 
@@ -555,7 +555,7 @@ LCM_DRIVER HX8394D_TXD_HANNSTAR_IPS_HD_lcm_drv =
 	.init           = lcm_init,
 	.suspend        = lcm_suspend,
 	.resume         = lcm_resume,
-     //.compare_id     = lcm_compare_id,
+     .compare_id     = lcm_compare_id,
  #if (LCM_DSI_CMD_MODE)
     // .update         = lcm_update,
  #endif
