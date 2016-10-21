@@ -224,145 +224,7 @@ static struct LCM_setting_table lcm_initialization_setting[] = {
 	{REGFLAG_END_OF_TABLE, 0x00, {}}
 };
 
-
 static void lcm_register(void)
-{
-     unsigned int data_array[16];
-   
-    data_array[0] = 0x00043902;
-    data_array[1] = 0x9483ffb9;
-    dsi_set_cmdq(data_array, 2, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x00033902;
-    data_array[1] = 0x008373ba;
-    dsi_set_cmdq(data_array, 2, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x00103902;
-    data_array[1] = 0x0d0d6cb1;
-    data_array[2] = 0xf1110426;
-    data_array[3] = 0x23543a81;
-    data_array[4] = 0x58d2c080;
-    dsi_set_cmdq(data_array, 5, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x000c3902;
-    data_array[1] = 0x0e6400b2;
-    data_array[2] = 0x081c220d;
-    data_array[3] = 0x004d1c08;
-    dsi_set_cmdq(data_array, 4, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x000d3902;
-    data_array[1] = 0x51ff00b4;
-    data_array[2] = 0x035a595a;
-    data_array[3] = 0x2070015a;
-    data_array[4] = 0x00000070;
-    dsi_set_cmdq(data_array, 5, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x00023902;
-    data_array[1] = 0x000007bc;
-    dsi_set_cmdq(data_array, 2, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x00043902;
-    data_array[1] = 0x010e41bf;
-    dsi_set_cmdq(data_array, 2, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x001f3902;
-    data_array[1] = 0x000f00d3;
-    data_array[2] = 0x00100740;
-    data_array[3] = 0x00081008;
-    data_array[4] = 0x0e155408;
-    data_array[5] = 0x15020e05;
-    data_array[6] = 0x47060506;
-    data_array[7] = 0x4b0a0a44;
-    data_array[8] = 0x00070710;
-    dsi_set_cmdq(data_array, 9, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x002d3902;
-    data_array[1] = 0x1b1a1ad5;
-    data_array[2] = 0x0201001b;
-    data_array[3] = 0x06050403;
-    data_array[4] = 0x0a090807;
-    data_array[5] = 0x1825240b;
-    data_array[6] = 0x18272618;
-    data_array[7] = 0x18181818;
-    data_array[8] = 0x18181818;
-    data_array[9] = 0x18181818;
-    data_array[10] = 0x20181818;
-    data_array[11] = 0x18181821;
-    data_array[12] = 0x00000018;
-    dsi_set_cmdq(data_array, 13, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x002d3902;
-    data_array[1] = 0x1b1a1ad6;
-    data_array[2] = 0x090a0b1b;
-    data_array[3] = 0x05060708;
-    data_array[4] = 0x01020304;
-    data_array[5] = 0x58202100;
-    data_array[6] = 0x18262758;
-    data_array[7] = 0x18181818;
-    data_array[8] = 0x18181818;
-    data_array[9] = 0x18181818;
-    data_array[10] = 0x25181818;
-    data_array[11] = 0x18181824;
-    data_array[12] = 0x00000018;
-    dsi_set_cmdq(data_array, 13, 1);
-    MDELAY(15);
-	
-
-    data_array[0] = 0x002b3902;
-    data_array[1] = 0x150e00e0;
-    data_array[2] = 0x213f2c20;
-    data_array[3] = 0x0c0a073b;
-    data_array[4] = 0x14110e17;
-    data_array[5] = 0x160c1312;
-    data_array[6] = 0x0e001c18;
-    data_array[7] = 0x3f2c2015;
-    data_array[8] = 0x0a073b21;
-    data_array[9] = 0x110e170c;
-    data_array[10] = 0x0c131214;
-    data_array[11] = 0x001c1816;
-    dsi_set_cmdq(data_array, 12, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x00023902;
-    data_array[1] = 0x000009cc;
-    dsi_set_cmdq(data_array, 2, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x00033902;
-    data_array[1] = 0x001430c0;
-    dsi_set_cmdq(data_array, 2, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x00053902;
-    data_array[1] = 0x40c000c7;
-    data_array[2] = 0x000000c0;
-    dsi_set_cmdq(data_array, 3, 1);
-    MDELAY(15);
-	
-    data_array[0] = 0x00033902;
-    data_array[1] = 0x007070b6;  //6a  70+
-    dsi_set_cmdq(data_array, 2, 1);
-
-    MDELAY(15);
-    data_array[0] = 0x00110500;
-    dsi_set_cmdq(data_array, 1, 1);
-    MDELAY(120);
-    data_array[0] = 0x00290500;
-    dsi_set_cmdq(data_array, 1, 1);
-    MDELAY(20);
-}
-
-
-static void lcm_register1(void)
 {
 	unsigned int data_array[16];
 
@@ -580,7 +442,7 @@ static unsigned int lcm_esd_check(void)
   	read_reg_v2(0x45, buffer, 2);
     	temp2 = buffer[0];  
   
-  	if ( temp1 == 0x1C && temp0 == 0x80 && temp2 == 5 ) { //f#ck
+  	if ( temp1 == 0x1C && temp0 == 0x80 && temp2 == 5 )
       		return FALSE;
 	}
 	
@@ -592,45 +454,46 @@ static unsigned int lcm_esd_check(void)
 
 static void lcm_get_params(LCM_PARAMS *params)
 {
+		memset(params, 0, sizeof(LCM_PARAMS));
 
-		    memset(params, 0, sizeof(LCM_PARAMS));
+		params->type   = LCM_TYPE_DSI;
 
-    params->type   = LCM_TYPE_DSI;
+		params->width  = FRAME_WIDTH;
+		params->height = FRAME_HEIGHT;
 
-    params->width  = FRAME_WIDTH;
-    params->height = FRAME_HEIGHT;
 
-    // enable tearing-free
-    params->dbi.te_mode                 = LCM_DBI_TE_MODE_DISABLED;
-    params->dbi.te_edge_polarity        = LCM_POLARITY_RISING;
+		params->dsi.mode   =SYNC_PULSE_VDO_MODE;// BURST_VDO_MODE; //SYNC_PULSE_VDO_MODE;//BURST_VDO_MODE;
 
-    //params->dsi.mode   = BURST_VDO_MODE;
-    params->dsi.mode   = SYNC_PULSE_VDO_MODE;//SYNC_EVENT_VDO_MODE; //BURST_VDO_MODE;
 
-    // DSI
-    /* Command mode setting */
-    params->dsi.LANE_NUM                = LCM_FOUR_LANE;
-    //The following defined the fomat for data coming from LCD engine.
-    params->dsi.data_format.color_order = LCM_COLOR_ORDER_RGB;
-    params->dsi.data_format.trans_seq   = LCM_DSI_TRANS_SEQ_MSB_FIRST;
-    params->dsi.data_format.padding     = LCM_DSI_PADDING_ON_LSB;
-    params->dsi.data_format.format      = LCM_DSI_FORMAT_RGB888;
+		// DSI
+		/* Command mode setting */
+		//1 Three lane or Four lane
+		params->dsi.LANE_NUM				= LCM_FOUR_LANE;
+		//The following defined the fomat for data coming from LCD engine.
+		params->dsi.data_format.format      = LCM_DSI_FORMAT_RGB888;
 
-    params->dsi.intermediat_buffer_num = 0;//because DSI/DPI HW design change, this parameters should be 0 when video mode in MT658X; or memory leakage
+		// Video mode setting
+		params->dsi.PS=LCM_PACKED_PS_24BIT_RGB888;
 
-    params->dsi.PS=LCM_PACKED_PS_24BIT_RGB888;
+		params->dsi.vertical_sync_active				= 2;// 3    2
+		params->dsi.vertical_backporch					= 16;// 20   1
+		params->dsi.vertical_frontporch					= 9; // 1  12
+		params->dsi.vertical_active_line				= FRAME_HEIGHT;
 
-    params->dsi.word_count=720*3;
-    params->dsi.vertical_sync_active                = 4;//2//
-    params->dsi.vertical_backporch                  = 12;//8
-    params->dsi.vertical_frontporch                 = 15;//6
-    params->dsi.vertical_active_line                = FRAME_HEIGHT;
-    params->dsi.horizontal_sync_active              = 46;//86 20
-    params->dsi.horizontal_backporch                = 50;//55 50
-    params->dsi.horizontal_frontporch               = 50;//55   50
-    params->dsi.horizontal_active_pixel         = FRAME_WIDTH;
+		params->dsi.horizontal_sync_active				= 36;// 50  2
+		params->dsi.horizontal_backporch				= 90;
+		params->dsi.horizontal_frontporch				= 90;
+		params->dsi.horizontal_active_pixel				= FRAME_WIDTH;
 
-	params->dsi.PLL_CLOCK = 230;
+
+		    params->dsi.esd_check_enable            = 1;
+
+		// Bit rate calculation
+		params->dsi.PLL_CLOCK = 230;
+	
+	
+		//form IDA
+		//params->dsi.ssc_disable = 1;
 
 }
 
@@ -692,7 +555,7 @@ LCM_DRIVER HX8394D_TXD_HANNSTAR_IPS_HD_lcm_drv =
 	.init           = lcm_init,
 	.suspend        = lcm_suspend,
 	.resume         = lcm_resume,
-     //.compare_id     = lcm_compare_id,
+     .compare_id     = lcm_compare_id,
  #if (LCM_DSI_CMD_MODE)
     // .update         = lcm_update,
  #endif
