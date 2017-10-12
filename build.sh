@@ -11,7 +11,7 @@ echo 'Configure CM Zera S '
 make alps_defconfig >/dev/null
 
 echo 'Building CM Zera S'
-make -j4 zImage >/dev/null 2>buildlog.log
+make -j2 zImage >/dev/null 2>buildlog.log
 
     #check errors
 if [ ! -f arch/arm/boot/zImage ]
