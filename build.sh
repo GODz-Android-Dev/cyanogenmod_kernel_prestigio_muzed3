@@ -1,6 +1,6 @@
-export ARCH=arm CROSS_COMPILE=../android_toolchain/linaro-4.9/bin/arm-linux-androideabi-
-export KBUILD_BUILD_USER=assusdan
-export KBUILD_BUILD_HOST=SRT
+export ARCH=arm CROSS_COMPILE=~/arm-eabi-4.8/bin/arm-eabi-
+#export KBUILD_BUILD_USER=assusdan
+#export KBUILD_BUILD_HOST=SRT
 
     #For checking errors
 echo 'Remove kernel...'
@@ -11,7 +11,7 @@ echo 'Configure CM Zera S '
 make alps_defconfig >/dev/null
 
 echo 'Building CM Zera S'
-make -j4 zImage >/dev/null 2>buildlog.log
+make -j2 zImage >/dev/null 2>buildlog.log
 
     #check errors
 if [ ! -f arch/arm/boot/zImage ]
